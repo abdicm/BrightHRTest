@@ -40,4 +40,9 @@ jobs:
       run: |
         npx cypress run
 
+    - name: download artifact
+      uses: actions/download-artifact@v3
+      with: 
+        name: tests
+
         
