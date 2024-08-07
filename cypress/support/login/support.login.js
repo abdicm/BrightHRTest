@@ -12,7 +12,7 @@ export default {
         return cy.get('input[name="email"]')
     },
     loginButton(){
-        return cy.contains('button', 'Login')
+        return cy.contains('button', 'Login')   
     },
     passwordField(){
         return cy.get('input[name="password"]')
@@ -126,24 +126,101 @@ export default {
     saveEmergencyContactButton(){
         return cy.contains('button', 'Save contact')
     },
-
-
-    closeButton() {
-        return cy.get('button[data-testid="closeBtn"]');
+    accountHolderName(){
+        return cy.get('input[placeholder="Account name"]');
     },
-    companyField() {
-        return cy.get('[data-qa="companyName-sign-up"]')
+    bankName(){
+        return cy.get('input[placeholder="Bank name"]');
     },
-    signUpButton() {
-        return cy.get('div.flex.items-center.ml-4.space-x-4').find('button').contains('Sign up')
+    bankBranch(){
+        return cy.get('input[placeholder="Bank branch"]');
     },
-    signUpMessage() {
-        return cy.get('h3.my-6.text-secondary-300').contains('Sign up today and get same-day access')
+    accountNumber(){
+        return cy.get('input[placeholder="8 digit number"]');
     },
-    template1() {
-        return cy.get('[aria-label="Contacts"]')
+    sortCode(){
+        return cy.get('input[placeholder="00-00-00"]');
     },
-    template2() {
-        return cy.get('[aria-label="Settings"]')
+    taxCode(){
+        return cy.get('input[name="taxCode"]');
+    },
+    niNumber(){
+        return cy.get('#niNumber');
+    },
+    passportNumber(){
+        return cy.get('#passportNumber');
+    },
+    passportCountryOfIssue(){
+        return cy.get('#passportCountryOfIssue').select('United Kingdom');
+    },
+    expiryDate(){
+        return cy.get('input[data-e2e="passportExpiryDate"]');
+    },
+    drivingLicenceNumber(){
+        return cy.get('#drivingLicenceNumber')
+    },
+    drivingLicenceCountryOfIssue(){
+        return cy.get('#drivingLicenceCountryOfIssue')
+    },
+    drivingLicenceClass(){
+        return cy.get('#drivingLicenceClass')
+    },
+    drivingLicenceExpiryDate(){
+        return cy.get('input[data-e2e="drivingLicenceExpiryDate"]');
+    },
+    visaNumber(){
+        return cy.get('#visaNumber')
+    },
+    visaExpiryDate(){
+        return cy.get('input[data-e2e="visaExpiryDate"]')
+    },
+    SaveAndContinueForm(){
+        return cy.contains('button', 'Save and continue').should('not.be.disabled');
+    },
+    addedContactName(){
+        return cy.get('p.mb-0.text-xl.font-semibold.xl\\:text-2xl')
+    },
+    workLocation() {
+        return cy.get('#location')
+    },
+    locationOption() {
+        return cy.get('.text-base.font-semibold.text-neutral-700')
+    },
+    jurisdiction() {
+        return cy.get('#jurisdiction')
+    },
+    fullTimeEmployeeOption() {
+        return cy.get('input[aria-label="Fixed, full or part time"]')
+    },
+    workPaternOptions() {
+        return cy.get('select[data-testid="workingPatternSelect"]')
+    },
+    workingWeekHours() {
+        return cy.get('input[data-testid="fullTimeEquivalentWorkingWeek.hours"]');
+    },
+    holidaytEntitlementUnit() {
+        return cy.get('input[data-testid="entitlement-unit-radio-days"]').wait(2000);
+    },
+    fullTimeAnnualLeaveDays() {
+        return  cy.get('input[data-testid="fullTimeAnnualLeaveDays"]').wait(2000);
+    },
+    addAllToBrightHrButton() {
+        return cy.contains('button', 'Add all to BrightHR')
+    },
+    summaryHeading() {
+        return cy.get('p.text-xl.font-semibold');
+    },
+    addedUserName() {
+        return cy.get('td.flex.p-3.md\\:table-cell');
+    },
+    addedUserEmail() {
+        return cy.get('td.flex.p-3.md\\:table-cell')
+    },
+    template() {
+        return cy.get('td.flex.p-3.md\\:table-cell')
+    },
+    template() {
+        return cy.get('td.flex.p-3.md\\:table-cell')
     }
+    
 }

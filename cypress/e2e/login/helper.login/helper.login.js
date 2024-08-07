@@ -26,7 +26,6 @@ function loginBrightHr() {
     loginSupport.mobileNumber().scrollIntoView().should("exist").should("be.visible").click().type("07446165925");
     loginSupport.jobTitle().should("exist").should("be.visible").type("Tester");
     loginSupport.workStartDate().should("exist").should("be.visible").type("14082024").type('{enter}')
-    // loginSupport.closeButton().scrollIntoView().should("exist").should("be.visible").click();
 
     loginSupport.address1().should("exist").should("be.visible").type("31");
     loginSupport.address2().should("exist").should("be.visible").type("King Street");
@@ -49,5 +48,43 @@ function loginBrightHr() {
     loginSupport.emergencyCountry().should("exist").should("be.visible").select('United Kingdom');
     loginSupport.emergencyRelationship().should("exist").should("be.visible").select('Spouse');
     loginSupport.saveEmergencyContactButton().should("exist").should("be.visible").click();
+
+    loginSupport.accountHolderName().scrollIntoView().should("exist").should("be.visible").type('GOAT');
+    loginSupport.bankName().scrollIntoView().should("exist").should("be.visible").type('Barclays');
+    loginSupport.bankBranch().scrollIntoView().should("exist").should("be.visible").type('`West London');
+    loginSupport.accountNumber().scrollIntoView().should("exist").should("be.visible").type('53305045');
+    loginSupport.sortCode().scrollIntoView().should("exist").should("be.visible").type('20-98-03');
+
+    loginSupport.taxCode().scrollIntoView().should("exist").should("be.visible").type('F22');
+    loginSupport.niNumber().scrollIntoView().should("exist").should("be.visible").type('SP0134L');
+    loginSupport.passportNumber().scrollIntoView().should("exist").should("be.visible").type('63849207');
+    loginSupport.passportCountryOfIssue().scrollIntoView().should("exist").should("be.visible").type('United Kingdom');
+    loginSupport.expiryDate().scrollIntoView().should("exist").should("be.visible").type('17082030').type("{Enter}");
+
+    loginSupport.drivingLicenceNumber().scrollIntoView().should("exist").should("be.visible").type('JACK364659FL');
+    loginSupport.drivingLicenceCountryOfIssue().scrollIntoView().should("exist").should("be.visible").select("United Kingdom")
+    loginSupport.drivingLicenceClass().scrollIntoView().should("exist").should("be.visible").type('Type B');
+    loginSupport.drivingLicenceExpiryDate().scrollIntoView().should("exist").should("be.visible").type('22022040').type("{Enter}");
+
+    loginSupport.visaNumber().scrollIntoView().should("exist").should("be.visible").type('7465850');
+    loginSupport.visaExpiryDate().scrollIntoView().should("exist").should("be.visible").type('22022025').type("{Enter}");
+    loginSupport.SaveAndContinueForm().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
+
+    loginSupport.addedContactName().contains("Abdi Aden").scrollIntoView().should("exist").should("be.visible");
+    loginSupport.workLocation().scrollIntoView().should("exist").should("be.visible").click();
+    loginSupport.locationOption().contains("ABC Office").scrollIntoView().should("exist").should("be.visible").click();
+    loginSupport.jurisdiction().scrollIntoView().should("exist").should("be.visible").select("England & Wales");
+    loginSupport.fullTimeEmployeeOption().scrollIntoView().should("exist").click()  
+    loginSupport.workPaternOptions().scrollIntoView().should("exist").should("be.visible").should('be.enabled').select('Mon-Fri 9-5 (5 days, 35hr)');
+    loginSupport.workingWeekHours().scrollIntoView().should("exist").should("be.visible").clear().type("35");
+    loginSupport.holidaytEntitlementUnit().scrollIntoView().should("exist").click()
+    loginSupport.fullTimeAnnualLeaveDays().scrollIntoView().should("exist").should("be.visible").type("25");
+    loginSupport.SaveAndContinueForm().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
+    // loginSupport.addAllToBrightHrButton().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
+
+    // loginSupport.summaryHeading().scrollIntoView().should("exist").should("be.visible").should('contain.text', 'Summary');
+    // loginSupport.addedUserName().scrollIntoView().should("exist").should("be.visible").should('contain.text', 'Abdi Aden');
+    // loginSupport.addedUserEmail().scrollIntoView().should("exist").should("be.visible").should('contain.text', 'abdi.yassin@hotmail.com');
+    // loginSupport.addAllToBrightHrButton().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
 }
 exports.loginBrightHr = loginBrightHr

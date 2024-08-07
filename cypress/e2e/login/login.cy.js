@@ -4,7 +4,7 @@ import * as login from "../login/helper.login/helper.login"
 
 describe('Login flow', () => {
   const testCaseID = 'T1-Login'
-  slowCypressDown()
+  // slowCypressDown()
   beforeEach(() => {
     
     cy.visit((`${Cypress.config('baseUrl')}`), { failOnStatusCode: false });
