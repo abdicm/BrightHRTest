@@ -24,7 +24,7 @@ export default {
         return cy.get('span.text-white').contains('Employees')
     },
     employeesHeading(){
-        return cy.get('h1.sc-LKuAh.Heading-fLkEDa').contains('Employee hub')
+        return cy.get('h1.sc-LKuAh.Heading-fLkEDa')
     },
     addEmployeeButton(){
        return cy.contains('button', 'Add employees') 

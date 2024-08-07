@@ -9,9 +9,12 @@ function loginBrightHr() {
     loginSupport.passwordField().should("exist").should("be.visible").type("A123456789");
     loginSupport.loginButton().should("exist").should("be.visible").click();
     loginSupport.peopleOverview().should("exist").should("be.visible").wait(2000);
+}
+exports.loginBrightHr = loginBrightHr
 
+function addEmployee() {
     loginSupport.employeesTab().should("exist").should("be.visible").click();
-    loginSupport.employeesHeading().should("exist").should("be.visible");
+    loginSupport.employeesHeading().contains('Employee hub').should("exist").should("be.visible");
     loginSupport.addEmployeeButton().should("exist").should("be.visible").click();
 
     loginSupport.newFirstNameField().scrollIntoView().should("exist").should("be.visible").type("Abdi");
@@ -87,4 +90,4 @@ function loginBrightHr() {
     // loginSupport.addedUserEmail().scrollIntoView().should("exist").should("be.visible").should('contain.text', 'abdi.yassin@hotmail.com');
     // loginSupport.addAllToBrightHrButton().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
 }
-exports.loginBrightHr = loginBrightHr
+exports.addEmployee = addEmployee

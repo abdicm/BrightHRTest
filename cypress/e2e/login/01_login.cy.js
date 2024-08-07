@@ -1,6 +1,6 @@
 /// <reference types="cypress" />
 import { slowCypressDown } from "cypress-slow-down";
-import * as login from "../login/helper.login/helper.login"
+import * as login from "./helper.login/helper.login"
 
 describe('Login flow', () => {
   const testCaseID = 'T1-Login'
@@ -13,6 +13,7 @@ describe('Login flow', () => {
 
   it('should login to BrightHR website', function () {
     login.loginBrightHr();
+    login.addEmployee();
   });
 });
 
