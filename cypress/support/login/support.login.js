@@ -175,7 +175,7 @@ export default {
         return cy.get('input[data-e2e="visaExpiryDate"]')
     },
     SaveAndContinueForm(){
-        return cy.contains('button', 'Save and continue')
+        return cy.contains('button', 'Save and continue').wait(2000)
     },
     addedContactName(){
         return cy.get('p.mb-0.text-xl.font-semibold.xl\\:text-2xl')
