@@ -14,9 +14,9 @@ function loginBrightHr() {
     loginSupport.employeesHeading().should("exist").should("be.visible");
     loginSupport.addEmployeeButton().should("exist").should("be.visible").click();
 
-    loginSupport.newFirstNameField().should("exist").should("be.visible").type("Abdi");
-    loginSupport.newLastNameField().should("exist").should("be.visible").type("Aden");
-    loginSupport.newEmployeeSubmitButton().should("exist").should("be.visible").click({ force: true });
+    loginSupport.newFirstNameField().scrollIntoView().should("exist").should("be.visible").type("Abdi");
+    loginSupport.newLastNameField().scrollIntoView().should("exist").should("be.visible").type("Aden");
+    loginSupport.newEmployeeSubmitButton().scrollIntoView().should("exist").should("be.visible").click({ force: true });
 
     loginSupport.selectTitle().should("exist").should("be.visible").select('Mr');
     loginSupport.middleName().should("exist").should("be.visible").type("Yassin");
