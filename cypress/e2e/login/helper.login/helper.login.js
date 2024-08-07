@@ -8,7 +8,7 @@ function loginBrightHr() {
     loginSupport.emailField().should("exist").should("be.visible").type("acctest02@grr.la");
     loginSupport.passwordField().should("exist").should("be.visible").type("A123456789");
     loginSupport.loginButton().should("exist").should("be.visible").click();
-    loginSupport.peopleOverview().should("exist").should("be.visible");
+    loginSupport.peopleOverview().should("exist").should("be.visible").wait(2000);
 
     loginSupport.employeesTab().should("exist").should("be.visible").click();
     loginSupport.employeesHeading().should("exist").should("be.visible");
