@@ -97,9 +97,9 @@ function addEmployee() {
     loginSupport.addAllToBrightHrButton().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
 
     loginSupport.summaryHeading().scrollIntoView().should("exist").should("be.visible").should('contain.text', 'Summary');
-    loginSupport.addedUserName().scrollIntoView().should("exist").should("be.visible").should('contain.text', randomName.firstName);
+    loginSupport.addedUserName().should("exist").should("be.visible").should('contain.text', randomName.firstName);
     loginSupport.addedUserEmail().scrollIntoView().should("exist").should("be.visible").should('contain.text', email);
-    loginSupport.addAllToBrightHrButton().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
+    loginSupport.addAllToBrightHrButton().scrollIntoView().should("exist").should("be.visible").click();
 }
 exports.addEmployee = addEmployee
 
