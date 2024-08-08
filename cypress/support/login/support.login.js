@@ -18,7 +18,7 @@ export default {
         return cy.get('input[name="password"]')
     },
     peopleOverview(){
-        return cy.get('.sc-cpmLhU.crcZfc').wait(5000)
+        return cy.get('h2.sc-cpmLhU.crcZfc').wait(5000)
     },
     employeesTab(){
         return cy.get('span.text-white').contains('Employees')
