@@ -1,4 +1,5 @@
 import loginSupport from "../../../support/login/support.login"
+let nameList = [];
 
 function loginBrightHr() {
     loginSupport.brightHrLoginHeading().should("exist").should("be.visible")
@@ -20,7 +21,13 @@ function addEmployee() {
     const randomName = generateRandomName();
     const email = generateRandomEmail(randomName.firstName,randomName.lastName);
 
+    const firstName =randomName.firstName;
+    const lastName =randomName.lastName;
+    const fullName = `${firstName} ${lastName}`; // Alternatively: firstName + ' ' + lastName;
 
+    nameList.push(fullName);
+    console.log('Added Employee Name: ', fullName);
+    console.log('*********************************',nameList);
 
     loginSupport.newFirstNameField().scrollIntoView().should("exist").should("be.visible").type(randomName.firstName);
     loginSupport.newLastNameField().scrollIntoView().should("exist").should("be.visible").type(randomName.lastName);
@@ -87,14 +94,20 @@ function addEmployee() {
     loginSupport.holidaytEntitlementUnit().scrollIntoView().should("exist").click()
     loginSupport.fullTimeAnnualLeaveDays().scrollIntoView().should("exist").should("be.visible").type("25");
     loginSupport.SaveAndContinueForm().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
-    // loginSupport.addAllToBrightHrButton().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
+    loginSupport.addAllToBrightHrButton().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
 
-    // loginSupport.summaryHeading().scrollIntoView().should("exist").should("be.visible").should('contain.text', 'Summary');
-    // loginSupport.addedUserName().scrollIntoView().should("exist").should("be.visible").should('contain.text', 'Abdi Aden');
-    // loginSupport.addedUserEmail().scrollIntoView().should("exist").should("be.visible").should('contain.text', 'abdi.yassin@hotmail.com');
-    // loginSupport.addAllToBrightHrButton().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
+    loginSupport.summaryHeading().scrollIntoView().should("exist").should("be.visible").should('contain.text', 'Summary');
+    loginSupport.addedUserName().scrollIntoView().should("exist").should("be.visible").should('contain.text', fullName);
+    loginSupport.addedUserEmail().scrollIntoView().should("exist").should("be.visible").should('contain.text', email);
+    loginSupport.addAllToBrightHrButton().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
 }
 exports.addEmployee = addEmployee
+
+function retrieveNames() {
+    return nameList;
+}
+
+exports.retrieveNames = retrieveNames
 
 function getRandomElement(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
