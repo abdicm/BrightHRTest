@@ -9,9 +9,13 @@ module.exports = defineConfig({
     ],
     viewportWidth: 1280,  // Set default width
     viewportHeight: 720,  // Set default height
+    experimentalSessionAndOrigin: true,
     baseUrl: 'https://sandbox-app.brighthr.com/lite',
+    // defaultCommandTimeout: 20000, // 10 seconds
+    // pageLoadTimeout: 20000, // 10 seconds
     setupNodeEvents(on, config) {
       // Implement node event listeners here
-    }
+      
+    },
   },
 });

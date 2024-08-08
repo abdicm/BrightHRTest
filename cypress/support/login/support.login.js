@@ -18,7 +18,7 @@ export default {
         return cy.get('input[name="password"]')
     },
     peopleOverview(){
-        return cy.get('.sc-cpmLhU.crcZfc').contains("People overview").wait(2000)
+        return cy.get('.sc-cpmLhU.crcZfc').wait(5000)
     },
     employeesTab(){
         return cy.get('span.text-white').contains('Employees')
@@ -178,7 +178,7 @@ export default {
         return cy.contains('button', 'Save and continue').wait(2000)
     },
     addedContactName(){
-        return cy.get('p.mb-0.text-xl.font-semibold.xl\\:text-2xl')
+        return cy.get('p.mb-0.text-xl.font-semibold.xl\\:text-2xl').wait(5000)
     },
     workLocation() {
         return cy.get('#location')

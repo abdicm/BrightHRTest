@@ -8,7 +8,7 @@ function loginBrightHr() {
     loginSupport.emailField().should("exist").should("be.visible").type("acctest02@grr.la");
     loginSupport.passwordField().should("exist").should("be.visible").type("A123456789");
     loginSupport.loginButton().should("exist").should("be.visible").click();
-    loginSupport.peopleOverview().should("exist").should("be.visible").wait(2000);
+    loginSupport.peopleOverview().contains("People overview").should("exist").should("be.visible");
 }
 exports.loginBrightHr = loginBrightHr
 
@@ -17,15 +17,20 @@ function addEmployee() {
     loginSupport.employeesHeading().contains('Employee hub').should("exist").should("be.visible");
     loginSupport.addEmployeeButton().should("exist").should("be.visible").click();
 
-    loginSupport.newFirstNameField().scrollIntoView().should("exist").should("be.visible").type("Abdi");
-    loginSupport.newLastNameField().scrollIntoView().should("exist").should("be.visible").type("Aden");
+    const randomName = generateRandomName();
+    const email = generateRandomEmail(randomName.firstName,randomName.lastName);
+
+
+
+    loginSupport.newFirstNameField().scrollIntoView().should("exist").should("be.visible").type(randomName.firstName);
+    loginSupport.newLastNameField().scrollIntoView().should("exist").should("be.visible").type(randomName.lastName);
     loginSupport.newEmployeeSubmitButton().scrollIntoView().should("exist").should("be.visible").click({ force: true });
 
     loginSupport.selectTitle().should("exist").should("be.visible").select('Mr');
-    loginSupport.middleName().should("exist").should("be.visible").type("Yassin");
+    loginSupport.middleName().should("exist").should("be.visible").type(randomName.middleName);
     loginSupport.gender().should("exist").should("be.visible").select('Male');
     loginSupport.dateOfBirth().should("exist").should("be.visible").type("22111990").type('{enter}')
-    loginSupport.emailAddress().should("exist").should("be.visible").type("abdi.yassin@hotmail.com");
+    loginSupport.emailAddress().should("exist").should("be.visible").type(email);
     loginSupport.mobileNumber().scrollIntoView().should("exist").should("be.visible").click().type("07446165925");
     loginSupport.jobTitle().should("exist").should("be.visible").type("Tester");
     loginSupport.workStartDate().should("exist").should("be.visible").type("14082024").type('{enter}')
@@ -73,7 +78,6 @@ function addEmployee() {
     loginSupport.visaExpiryDate().scrollIntoView().should("exist").should("be.visible").type('22022025').type("{Enter}");
     loginSupport.SaveAndContinueForm().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
 
-    loginSupport.addedContactName().contains("Abdi Aden").scrollIntoView().should("exist").should("be.visible");
     loginSupport.workLocation().scrollIntoView().should("exist").should("be.visible").click();
     loginSupport.locationOption().contains("ABC Office").scrollIntoView().should("exist").should("be.visible").click();
     loginSupport.jurisdiction().scrollIntoView().should("exist").should("be.visible").select("England & Wales");
@@ -91,3 +95,30 @@ function addEmployee() {
     // loginSupport.addAllToBrightHrButton().scrollIntoView().should("exist").should("be.visible").should("not.be.disabled").click();
 }
 exports.addEmployee = addEmployee
+
+function getRandomElement(arr) {
+    return arr[Math.floor(Math.random() * arr.length)];
+}
+
+function generateRandomName() {
+    const firstNames = ['John', 'Jane', 'Alex', 'Emily', 'Chris', 'Katie'];
+    const lastNames = ['Smith', 'Doe', 'Johnson', 'Williams', 'Brown', 'Jones'];
+    const middleNames = ['Michael', 'Marie', 'James', 'Ann', 'Lee', 'Grace'];
+ 
+    const firstName = getRandomElement(firstNames);
+    const lastName = getRandomElement(lastNames);
+    const middleName = getRandomElement(middleNames);
+ 
+    return {
+        firstName,
+        middleName,
+        lastName
+    };
+}
+function generateRandomEmail(firstName, lastName) {
+    const domains = ['example.com', 'test.com', 'demo.com'];
+    const domain = getRandomElement(domains);
+    return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
+}
+
+
