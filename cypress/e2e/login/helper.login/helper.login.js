@@ -19,15 +19,15 @@ function addEmployee() {
     loginSupport.addEmployeeButton().should("exist").should("be.visible").click();
 
     const randomName = generateRandomName();
-    const email = generateRandomEmail(randomName.firstName,randomName.lastName);
+    const email = generateRandomEmail(randomName.firstName, randomName.lastName);
 
-    const firstName =randomName.firstName;
-    const lastName =randomName.lastName;
+    const firstName = randomName.firstName;
+    const lastName = randomName.lastName;
     const fullName = `${firstName} ${lastName}`; // Alternatively: firstName + ' ' + lastName;
 
     nameList.push(fullName);
     console.log('Added Employee Name: ', fullName);
-    console.log('*********************************',nameList);
+    console.log('*********************************', nameList);
 
     loginSupport.newFirstNameField().scrollIntoView().should("exist").should("be.visible").type(randomName.firstName);
     loginSupport.newLastNameField().scrollIntoView().should("exist").should("be.visible").type(randomName.lastName);
@@ -88,7 +88,7 @@ function addEmployee() {
     loginSupport.workLocation().scrollIntoView().should("exist").should("be.visible").click();
     loginSupport.locationOption().contains("ABC Office").scrollIntoView().should("exist").should("be.visible").click();
     loginSupport.jurisdiction().scrollIntoView().should("exist").should("be.visible").select("England & Wales");
-    loginSupport.fullTimeEmployeeOption().scrollIntoView().should("exist").click()  
+    loginSupport.fullTimeEmployeeOption().scrollIntoView().should("exist").click()
     loginSupport.workPaternOptions().scrollIntoView().should("exist").should("be.visible").should('be.enabled').select('Mon-Fri 9-5 (5 days, 35hr)');
     loginSupport.workingWeekHours().scrollIntoView().should("exist").should("be.visible").clear().type("35");
     loginSupport.holidaytEntitlementUnit().scrollIntoView().should("exist").click()
@@ -98,8 +98,10 @@ function addEmployee() {
 
     loginSupport.summaryHeading().scrollIntoView().should("exist").should("be.visible").should('contain.text', 'Summary');
     loginSupport.addedUserName().should("exist").should("be.visible").should('contain.text', randomName.firstName);
-    loginSupport.addedUserEmail().scrollIntoView().should("exist").should("be.visible").should('contain.text', email);
-    loginSupport.addAllToBrightHrButton().scrollIntoView().should("exist").should("be.visible").click();
+    loginSupport.addedUserEmail().should("exist").should("be.visible").should('contain.text', email);
+    loginSupport.summaryPageNextButton().should("exist").should("be.visible").click();
+    loginSupport.summarySaveAndContinue().should("exist").should("be.visible").click();
+    loginSupport.goToEmployeeHubButton().should("exist").should("be.visible").click();
 }
 exports.addEmployee = addEmployee
 
@@ -114,14 +116,22 @@ function getRandomElement(arr) {
 }
 
 function generateRandomName() {
-    const firstNames = ['John', 'Jane', 'Alex', 'Emily', 'Chris', 'Katie'];
-    const lastNames = ['Smith', 'Doe', 'Johnson', 'Williams', 'Brown', 'Jones'];
-    const middleNames = ['Michael', 'Marie', 'James', 'Ann', 'Lee', 'Grace'];
- 
+    const firstNames = [
+        'Jackson', 'Avery', 'Logan', 'Samantha', 'Mason', 'Ella',
+        'Harper', 'James', 'Sofia', 'Isaiah', 'Chloe', 'Eli'];
+    
+    const lastNames = [
+        'Wright', 'Martinez', 'Murphy', 'Cooper', 'Bennett', 
+        'Foster', 'Bailey', 'Morris', 'Price', 'Lee', 'Sanders', 'Bryant'];
+    
+    const middleNames = [
+        'Jackson', 'Nora', 'Landon', 'Piper', 'Owen', 
+        'Maya', 'Levi', 'Ruby', 'Sebastian', 'Lila', 'Henry', 'Ellie'];
+
     const firstName = getRandomElement(firstNames);
     const lastName = getRandomElement(lastNames);
     const middleName = getRandomElement(middleNames);
- 
+
     return {
         firstName,
         middleName,

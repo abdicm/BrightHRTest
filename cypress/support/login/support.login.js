@@ -205,7 +205,7 @@ export default {
         return  cy.get('input[data-testid="fullTimeAnnualLeaveDays"]').wait(2000);
     },
     addAllToBrightHrButton() {
-        return cy.get('[data-testid="add-all-to-brighthr"]').wait(200);
+        return cy.contains('button', 'Add all to BrightHR').wait(2000);
     },
     summaryHeading() {
         return cy.get('p.text-xl.font-semibold');
@@ -216,11 +216,14 @@ export default {
     addedUserEmail() {
         return cy.get('td.flex.p-3.md\\:table-cell')
     },
-    template() {
-        return cy.get('td.flex.p-3.md\\:table-cell')
+    summaryPageNextButton() {
+        return cy.contains('button', 'Next').wait(2000);
     },
-    template() {
-        return cy.get('td.flex.p-3.md\\:table-cell')
+    summarySaveAndContinue() {
+        return cy.contains('button', 'Send & continue').wait(2000);
+    },
+    goToEmployeeHubButton() {
+        return cy.contains('button', 'Go to Employee Hub').wait(2000);
     }
     
 }
