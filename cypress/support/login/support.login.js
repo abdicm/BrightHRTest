@@ -205,7 +205,7 @@ export default {
         return  cy.get('input[data-testid="fullTimeAnnualLeaveDays"]').wait(2000);
     },
     addAllToBrightHrButton() {
-        return cy.contains('button', 'Add all to BrightHR')
+        return cy.contains('button', 'Add all to BrightHR').wait(200);
     },
     summaryHeading() {
         return cy.get('p.text-xl.font-semibold');
