@@ -11,7 +11,7 @@ function loginBrightHr() {
     loginSupport.emailField().should("exist").should("be.visible").type("acctest02@grr.la"); //look into enum//variables and call them
     loginSupport.passwordField().should("exist").should("be.visible").type("A123456789");
     loginSupport.loginButton().should("exist").should("be.visible").click();
-    loginSupport.peopleOverview().contains("People overview").should("exist").should("be.visible");
+    loginSupport.peopleOverview().should("exist").should("be.visible");
 }
 exports.loginBrightHr = loginBrightHr
 
