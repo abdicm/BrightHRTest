@@ -139,9 +139,9 @@ function generateRandomName() {
     const middleName = getRandomElement(middleNames); 
 
     return {
-        firstName: firstName,
-        middleName: middleName,
-        lastName: lastName
+        firstName,
+        middleName,
+        lastName, 
     };
 }
 function generateRandomEmail(firstName, lastName) {
