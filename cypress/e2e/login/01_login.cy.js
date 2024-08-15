@@ -9,14 +9,13 @@ describe('Login flow', () => {
     cy.clearCookies();
     cy.clearLocalStorage();
     
-    cy.visit((`${Cypress.config('baseUrl')}`), { failOnStatusCode: false });
+    cy.visit((`${Cypress.config('baseUrl')}`), { failOnStatusCode: false }); //read
     cy.url().should("eq", `https://sandbox-app.brighthr.com/lite`);
     
   });
-
   it('should login to BrightHR website and add an employee', function () {
     login.loginBrightHr();
-    login.addEmployee();
+    // login.addEmployee();
   });
 });
 

@@ -10,8 +10,13 @@ function employeeList() {
     const employeeNameCount = employeeNames.length;
     console.log('employeeNameCount: ', employeeNameCount);
     
-    for (let i = 0; i < employeeNameCount; i++) {
+    for (let i = 0; i <= employeeNameCount; i++) {
         employeeSupport.employeeName().contains(employeeNames[i]).should("exist").should("be.visible");
+    // Use for loop
+    // get employeeList which is employeeSupport.employeeName()
+    // if current i is eq 1 
+    // Eg employeeNames[1] (John Smith). should....
+    // Loop through all items in the list and check
     }
 }
 

@@ -1,12 +1,14 @@
 import loginSupport from "../../../support/login/support.login"
+//
 let nameList = [];
+
 
 function loginBrightHr() {
     loginSupport.brightHrLoginHeading().should("exist").should("be.visible")
     loginSupport.homePageloginButton().should("exist").should("be.visible").click();
     loginSupport.loginPageHeading().should("exist").should("be.visible");
 
-    loginSupport.emailField().should("exist").should("be.visible").type("acctest02@grr.la");
+    loginSupport.emailField().should("exist").should("be.visible").type("acctest02@grr.la"); //look into enum//variables and call them
     loginSupport.passwordField().should("exist").should("be.visible").type("A123456789");
     loginSupport.loginButton().should("exist").should("be.visible").click();
     loginSupport.peopleOverview().contains("People overview").should("exist").should("be.visible");
@@ -106,13 +108,17 @@ function addEmployee() {
 exports.addEmployee = addEmployee
 
 function retrieveNames() {
-    return nameList;
+    return nameList; //Created outside so it can be accessed globally and called
 }
 
 exports.retrieveNames = retrieveNames
 
 function getRandomElement(arr) {
-    return arr[Math.floor(Math.random() * arr.length)];
+    return arr[Math.floor(Math.random() * arr.length)]; 
+    // get leng of the array
+    // generate a random number between 0 and the length of the array
+    //round down the generated value into a whole number
+    //return value of the array at that position  array[generated number]
 }
 
 function generateRandomName() {
@@ -130,18 +136,19 @@ function generateRandomName() {
 
     const firstName = getRandomElement(firstNames);
     const lastName = getRandomElement(lastNames);
-    const middleName = getRandomElement(middleNames);
+    const middleName = getRandomElement(middleNames); 
 
     return {
-        firstName,
-        middleName,
-        lastName
+        firstName: firstName,
+        middleName: middleName,
+        lastName: lastName
     };
 }
 function generateRandomEmail(firstName, lastName) {
     const domains = ['example.com', 'test.com', 'demo.com'];
     const domain = getRandomElement(domains);
-    return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`;
+    return `${firstName.toLowerCase()}.${lastName.toLowerCase()}@${domain}`; //returns a string
+    //look up string interpolation
 }
 
 
